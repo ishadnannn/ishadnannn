@@ -9,42 +9,108 @@
     h1 { background-color: #222; color: white; padding: 20px; margin: 0; font-weight: bold; font-size: 2em; }
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
     .card { background: white; border-radius: 10px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .card img { max-width: 100%; border-radius: 10px; height: auto; }
+    .card img { width: 100%; border-radius: 10px; cursor: pointer; margin-bottom: 10px; }
     .title { font-weight: bold; margin: 10px 0 5px; font-size: 1.2em; }
     .price { color: #4CAF50; font-size: 1.1em; }
-    .multi-image { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
-    .multi-image img { width: 120px; border-radius: 8px; }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .lightbox .close, .lightbox .prev, .lightbox .next {
+      position: absolute;
+      top: 50%;
+      color: white;
+      font-size: 2em;
+      padding: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lightbox .close { top: 20px; right: 30px; font-size: 1.5em; }
+    .lightbox .prev { left: 20px; transform: translateY(-50%); }
+    .lightbox .next { right: 20px; transform: translateY(-50%); }
   </style>
 </head>
 <body>
-  <h1><strong>Isha Adnan Art Gallery</strong></h1>
+  <h1>Isha Adnan Art Gallery</h1>
 
   <div class="gallery">
-    <!-- 4 Qul – Modern Calligraphy -->
+    <!-- 4 Qul Section -->
     <div class="card">
-      <img src="https://i.postimg.cc/Jhw4PH3Q/f6523b09-23a0-4e02-9190-dff68504b4e6.jpg" alt="4 Qul – Modern Calligraphy">
+      <img src="https://i.postimg.cc/Jhw4PH3Q/f6523b09-23a0-4e02-9190-dff68504b4e6.jpg" alt="4 Qul – Modern Calligraphy" data-group="Qul">
       <div class="title">4 Qul – Modern Calligraphy</div>
       <div class="price">Rs. 20,000</div>
-      <div class="multi-image">
-        <img src="https://i.postimg.cc/X7zvBzpm/ca80b84b-0743-4d3d-96a2-b852b88e77ce.jpg" alt="Detail 1">
-        <img src="https://i.postimg.cc/2jTyr6mz/837a4848-49d7-4689-96e3-14026a356acb.jpg" alt="Detail 2">
-        <img src="https://i.postimg.cc/bNJJJhN1/b2091e71-53c8-4219-b9de-6949b4952d79.jpg" alt="Detail 3">
-        <img src="https://i.postimg.cc/FHkHyVSR/76088d8e-a3a4-4fcd-8901-34569750fac1.jpg" alt="Detail 4">
-      </div>
+      <img src="https://i.postimg.cc/X7zvBzpm/ca80b84b-0743-4d3d-96a2-b852b88e77ce.jpg" alt="Detail 1" data-group="Qul">
+      <img src="https://i.postimg.cc/2jTyr6mz/837a4848-49d7-4689-96e3-14026a356acb.jpg" alt="Detail 2" data-group="Qul">
+      <img src="https://i.postimg.cc/bNJJJhN1/b2091e71-53c8-4219-b9de-6949b4952d79.jpg" alt="Detail 3" data-group="Qul">
+      <img src="https://i.postimg.cc/FHkHyVSR/76088d8e-a3a4-4fcd-8901-34569750fac1.jpg" alt="Detail 4" data-group="Qul">
     </div>
 
     <!-- Ayat al-Kursi Section -->
     <div class="card">
-      <img src="https://i.postimg.cc/Fzk5wN4Q/86d54359-3beb-42a1-8c79-f80feaaf3213.jpg" alt="Ayat al-Kursi">
+      <img src="https://i.postimg.cc/Fzk5wN4Q/86d54359-3beb-42a1-8c79-f80feaaf3213.jpg" alt="Ayat al-Kursi" data-group="Ayat">
       <div class="title">Ayat al-Kursi</div>
       <div class="price">Rs. 15,000</div>
-      <div class="multi-image">
-        <img src="https://i.postimg.cc/Y9GtB16V/65f2871d-25d0-4d26-bb2a-c2900c0b3742.jpg" alt="Detail 1">
-        <img src="https://i.postimg.cc/sDyCTFNb/0601e59b-1894-448b-9426-3a2d052c591b.jpg" alt="Detail 2">
-        <img src="https://i.postimg.cc/wB1C191R/3c09a682-c9b4-43f4-ba43-eeff0f138630.jpg" alt="Detail 3">
-      </div>
+      <img src="https://i.postimg.cc/Y9GtB16V/65f2871d-25d0-4d26-bb2a-c2900c0b3742.jpg" alt="Detail 1" data-group="Ayat">
+      <img src="https://i.postimg.cc/sDyCTFNb/0601e59b-1894-448b-9426-3a2d052c591b.jpg" alt="Detail 2" data-group="Ayat">
+      <img src="https://i.postimg.cc/wB1C191R/3c09a682-c9b4-43f4-ba43-eeff0f138630.jpg" alt="Detail 3" data-group="Ayat">
     </div>
   </div>
 
+  <!-- Lightbox structure -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="lb-close">×</span>
+    <span class="prev" id="lb-prev">‹</span>
+    <img id="lb-img" src="" alt="Zoomed">
+    <span class="next" id="lb-next">›</span>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbClose = document.getElementById('lb-close');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
+
+    let currentGroup = [], currentIndex = 0;
+
+    document.querySelectorAll('.gallery img').forEach((img, i) => {
+      img.addEventListener('click', () => {
+        currentGroup = Array.from(document.querySelectorAll(`img[data-group="${img.dataset.group}"]`));
+        currentIndex = currentGroup.indexOf(img);
+        lbImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    lbClose.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lbPrev.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + currentGroup.length) % currentGroup.length;
+      lbImg.src = currentGroup[currentIndex].src;
+    });
+
+    lbNext.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % currentGroup.length;
+      lbImg.src = currentGroup[currentIndex].src;
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
