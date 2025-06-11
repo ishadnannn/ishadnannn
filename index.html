@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Isha Adnan Art Gallery</title>
   <style>
-    body { font-family: sans-serif; background: #f9f9f9; text-align: center; margin: 0; padding: 0; }
-    h1 { background: #222; color: #fff; padding: 20px; margin: 0; font-size: 2em; font-weight: bold; }
-
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0; padding: 0;
+      background: #f9f9f9;
+    }
+    h1 {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
     .ArtSection {
       margin: 20px auto;
       max-width: 600px;
@@ -16,62 +27,84 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       overflow: hidden;
       cursor: pointer;
+      transition: max-height 0.4s ease;
     }
-
-    .ArtSection img {
+    .ArtSection img, .ArtSectionContent img {
       width: 100%;
       object-fit: cover;
-      height: auto;
-      display: block;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
     }
-
     .ArtSectionContent {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
     }
-
     .ArtSection.open .ArtSectionContent {
-      max-height: 1000px;
-      padding: 10px;
+      max-height: 2000px; /* plenty of space to expand */
     }
-
     .ArtSectionContent img {
       width: calc(50% - 10px);
       margin: 5px;
-      border-radius: 4px;
-      cursor: pointer;
+      height: 200px;
     }
-
-    /* Zoom Modal */
+    /* Zoom popup */
     #zoomModal {
       display: none;
       position: fixed;
+      z-index: 1000;
       top:0; left:0;
       width:100%; height:100%;
       background:rgba(0,0,0,0.85);
       align-items:center;
       justify-content:center;
-      z-index:10000;
     }
-    #zoomModal img { max-width:90%; max-height:90%; border-radius: 10px;}
+    #zoomModal img {
+      max-width:90%;
+      max-height:90%;
+      border-radius:10px;
+    }
     #zoomModal span {
-      position:absolute; top:20px; right:30px;
-      color:#fff; font-size:2em; cursor:pointer;
+      position:absolute;
+      top:20px; right:30px;
+      color:#fff;
+      font-size:2em;
+      cursor:pointer;
     }
+    .title, .price {
+      padding: 10px;
+      font-size: 1.1em;
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+    }
+    .price { color: #4CAF50; font-weight: bold; }
   </style>
 </head>
 <body>
   <h1>Isha Adnan Art Gallery</h1>
 
-  <!-- Example Section: 4 Qul – Modern Calligraphy -->
+  <!-- 4 Qul Section -->
   <div class="ArtSection" id="section-Qul">
-    <img src="https://i.postimg.cc/Jhw4PH3Q/f6523b09-23a0-4e02-9190-dff68504b4e6.jpg" alt="4 Qul – Modern Calligraphy (Main)">
+    <img src="https://i.postimg.cc/Jhw4PH3Q/f6523b09-23a0-4e02-9190-dff68504b4e6.jpg" alt="4 Qul – Modern Calligraphy">
+    <div class="title">4 Qul – Modern Calligraphy</div>
+    <div class="price">Rs. 20,000</div>
     <div class="ArtSectionContent">
       <img src="https://i.postimg.cc/X7zvBzpm/ca80b84b-0743-4d3d-96a2-b852b88e77ce.jpg" alt="Detail 1">
       <img src="https://i.postimg.cc/2jTyr6mz/837a4848-49d7-4689-96e3-14026a356acb.jpg" alt="Detail 2">
       <img src="https://i.postimg.cc/bNJJJhN1/b2091e71-53c8-4219-b9de-6949b4952d79.jpg" alt="Detail 3">
       <img src="https://i.postimg.cc/FHkHyVSR/76088d8e-a3a4-4fcd-8901-34569750fac1.jpg" alt="Detail 4">
+    </div>
+  </div>
+
+  <!-- Ayat al-Kursi Section -->
+  <div class="ArtSection" id="section-Ayat">
+    <img src="https://i.postimg.cc/Fzk5wN4Q/86d54359-3beb-42a1-8c79-f80feaaf3213.jpg" alt="Ayat al-Kursi">
+    <div class="title">Ayat al-Kursi</div>
+    <div class="price">Rs. 15,000</div>
+    <div class="ArtSectionContent">
+      <img src="https://i.postimg.cc/Y9GtB16V/65f2871d-25d0-4d26-bb2a-c2900c0b3742.jpg" alt="Detail 1">
+      <img src="https://i.postimg.cc/sDyCTFNb/0601e59b-1894-448b-9426-3a2d052c591b.jpg" alt="Detail 2">
+      <img src="https://i.postimg.cc/wB1C191R/3c09a682-c9b4-43f4-ba43-eeff0f138630.jpg" alt="Detail 3">
     </div>
   </div>
 
@@ -82,27 +115,31 @@
   </div>
 
   <script>
+    // Expand/collapse section
     document.querySelectorAll('.ArtSection').forEach(section => {
       section.addEventListener('click', () => {
         section.classList.toggle('open');
       });
     });
 
+    // Zoom popup
     const zoomModal = document.getElementById('zoomModal');
     const zoomImg = document.getElementById('zoomImg');
     const closeZoom = document.getElementById('closeZoom');
 
     document.querySelectorAll('.ArtSection img').forEach(img => {
-      img.addEventListener('click', e => {
-        e.stopPropagation();
-        zoomImg.src = img.src;
+      img.addEventListener('click', function(e) {
+        e.stopPropagation(); // prevent collapsing
+        zoomImg.src = this.src;
         zoomModal.style.display = 'flex';
       });
     });
 
-    closeZoom.addEventListener('click', () => zoomModal.style.display = 'none');
-    zoomModal.addEventListener('click', e => {
-      if (e.target == zoomModal) zoomModal.style.display = 'none';
+    closeZoom.addEventListener('click', () => {
+      zoomModal.style.display = 'none';
+    });
+    zoomModal.addEventListener('click', (e) => {
+      if (e.target === zoomModal) zoomModal.style.display = 'none';
     });
   </script>
 </body>
