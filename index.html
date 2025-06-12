@@ -2,176 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Isha Adnan Art Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝐐𝐬𝐝𝐀 𝐀𝐱𝐧𝐀𝐭 𝐀𝐫𝐫 𝐆𝐀𝐭𝐭𝐨𝐬𝐭</title>
   <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      margin: 0; padding: 0;
-      background: #f9f9f9;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
     h1 {
-      background: #222;
-      color: #fff;
-      padding: 20px;
-      margin: 0;
+      text-align: center;
       font-size: 2em;
       font-weight: bold;
+      padding: 20px;
     }
-    .ArtSection {
-      margin: 20px auto;
-      max-width: 600px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      cursor: pointer;
-      transition: max-height 0.4s ease;
+    section {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
     }
-    .ArtSection img, .ArtSectionContent img {
-      width: 100%;
-      object-fit: cover;
-      cursor: pointer;
-      border-bottom: 1px solid #eee;
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      scroll-snap-type: x mandatory;
     }
-    .ArtSectionContent {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+    .carousel img {
+      max-height: 400px;
+      border-radius: 10px;
+      scroll-snap-align: start;
+      flex-shrink: 0;
     }
-    .ArtSection.open .ArtSectionContent {
-      max-height: 2000px; /* plenty of space to expand */
+    details {
+      margin-top: 10px;
+      font-size: 1em;
     }
-    .ArtSectionContent img {
-      width: calc(50% - 10px);
-      margin: 5px;
-      height: 200px;
+    p.price {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
     }
-    /* Zoom popup */
-    #zoomModal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.85);
-      align-items:center;
-      justify-content:center;
+    .footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 18px;
     }
-    #zoomModal img {
-      max-width:90%;
-      max-height:90%;
-      border-radius:10px;
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
     }
-    #zoomModal span {
-      position:absolute;
-      top:20px; right:30px;
-      color:#fff;
-      font-size:2em;
-      cursor:pointer;
-    }
-    .title, .price {
-      padding: 10px;
-      font-size: 1.1em;
-      background: #fafafa;
-      border-bottom: 1px solid #eee;
-    }
-    .price { color: #4CAF50; font-weight: bold; }
   </style>
 </head>
 <body>
-  <h1>Isha Adnan Art Gallery</h1>
+  <h1>𝐐𝐬𝐝𝐀 𝐀𝐱𝐧𝐀𝐭 𝐀𝐫𝐫𝐆𝐀𝐭𝐭𝐨𝐬𝐭</h1>
 
-  <!-- 4 Qul Section -->
-  <div class="ArtSection" id="section-Qul">
-    <img src="https://i.postimg.cc/Jhw4PH3Q/f6523b09-23a0-4e02-9190-dff68504b4e6.jpg" alt="4 Qul – Modern Calligraphy">
-    <div class="title">4 Qul – Modern Calligraphy</div>
-    <div class="price">Rs. 20,000</div>
-    <div class="ArtSectionContent">
-      <img src="https://i.postimg.cc/X7zvBzpm/ca80b84b-0743-4d3d-96a2-b852b88e77ce.jpg" alt="Detail 1">
-      <img src="https://i.postimg.cc/2jTyr6mz/837a4848-49d7-4689-96e3-14026a356acb.jpg" alt="Detail 2">
-      <img src="https://i.postimg.cc/bNJJJhN1/b2091e71-53c8-4219-b9de-6949b4952d79.jpg" alt="Detail 3">
-      <img src="https://i.postimg.cc/FHkHyVSR/76088d8e-a3a4-4fcd-8901-34569750fac1.jpg" alt="Detail 4">
+  <!-- Section 1 -->
+  <section>
+    <h2>Surah Rahman</h2>
+    <div class="carousel">
+      <img src="https://i.postimg.cc/FsYC5W5Z/IMG-20240710-015547-844.jpg">
+      <img src="https://i.postimg.cc/7hnZL7LV/IMG-20240710-015547-876.jpg">
+      <img src="https://i.postimg.cc/SsG3RJDf/20240623-180712.jpg">
+      <img src="https://i.postimg.cc/3Nmy2Q01/20240623-180119.jpg">
+      <img src="https://i.postimg.cc/nz6jshrM/20240623-180058.jpg">
+      <img src="https://i.postimg.cc/BnMjTgbr/20240623-180300.jpg">
+      <img src="https://i.postimg.cc/SNL2sqhN/20240623-180313.jpg">
+      <img src="https://i.postimg.cc/3xKy068j/20240623-180335.jpg">
+      <img src="https://i.postimg.cc/63KFBdLQ/20240623-180413.jpg">
     </div>
-  </div>
+    <details>
+      <summary>Details</summary>
+      Modern Islamic Calligraphy<br>
+      Dimension: 36*72 inches<br>
+      Frame size: 4 inch<br>
+      Material: Acrylic/ Oil on canvas
+    </details>
+    <p class="price">Sold Out</p>
+  </section>
 
-  <!-- Ayat al-Kursi Section -->
-  <div class="ArtSection" id="section-Ayat">
-    <img src="https://i.postimg.cc/Fzk5wN4Q/86d54359-3beb-42a1-8c79-f80feaaf3213.jpg" alt="Ayat al-Kursi">
-    <div class="title">Ayat al-Kursi</div>
-    <div class="price">Rs. 15,000</div>
-    <div class="ArtSectionContent">
-      <img src="https://i.postimg.cc/Y9GtB16V/65f2871d-25d0-4d26-bb2a-c2900c0b3742.jpg" alt="Detail 1">
-      <img src="https://i.postimg.cc/sDyCTFNb/0601e59b-1894-448b-9426-3a2d052c591b.jpg" alt="Detail 2">
-      <img src="https://i.postimg.cc/wB1C191R/3c09a682-c9b4-43f4-ba43-eeff0f138630.jpg" alt="Detail 3">
+  <!-- Section 2 -->
+  <section>
+    <h2>Kiswa e Kaaba</h2>
+    <div class="carousel">
+      <img src="https://i.postimg.cc/NjGrmC8c/20241003-233107-2.jpg">
+      <img src="https://i.postimg.cc/7hy56KPj/20241003-233130-2.jpg">
+      <img src="https://i.postimg.cc/V6tSmxwj/20241003-233205-2.jpg">
+      <img src="https://i.postimg.cc/d0MvbZhW/IMG-20240714-002308-946.jpg">
+      <img src="https://i.postimg.cc/JnM8nwcZ/IMG-20240714-002309-088.jpg">
     </div>
+    <details>
+      <summary>Details</summary>
+      Dimension: 36*48 inches<br>
+      Frame size: 4 inch<br>
+      Material: Acrylic plus Gold Leaf Work
+    </details>
+    <p class="price">Price: Rs. 45,000</p>
+  </section>
+
+  <!-- Section 3 -->
+  <section>
+    <h2>Portraits & Acrylic Art</h2>
+    <div class="carousel">
+      <img src="https://i.postimg.cc/W1XB9zQy/20241011-131815-2.jpg">
+      <img src="https://i.postimg.cc/KvyV5Bsf/20240917-095702.jpg">
+      <img src="https://i.postimg.cc/JzSjbcp4/20240917-095750.jpg">
+    </div>
+    <details>
+      <summary>Details</summary>
+      Dimension: 48*48 inches<br>
+      Medium: Acrylic
+    </details>
+    <p class="price">Sold Out</p>
+  </section>
+
+  <!-- Section 4 -->
+  <section>
+    <h2>4 Qul Modern Calligraphy</h2>
+    <div class="carousel">
+      <img src="https://i.postimg.cc/X7zvBzpm/ca80b84b-0743-4d3d-96a2-b852b88e77ce.jpg">
+      <img src="https://i.postimg.cc/2jTyr6mz/837a4848-49d7-4689-96e3-14026a356acb.jpg">
+      <img src="https://i.postimg.cc/bNJJJhN1/b2091e71-53c8-4219-b9de-6949b4952d79.jpg">
+      <img src="https://i.postimg.cc/FHkHyVSR/76088d8e-a3a4-4fcd-8901-34569750fac1.jpg">
+    </div>
+    <details>
+      <summary>Details</summary>
+      Modern Arabic Calligraphy<br>
+      Dimension: 40*25 inches<br>
+      Frame size: 2 inch<br>
+      Material: Acrylic/Oil Paint
+    </details>
+    <p class="price">Price: Rs. 20,000</p>
+  </section>
+
+  <!-- Section 5 -->
+  <section>
+    <h2>Ayatal Kursi</h2>
+    <div class="carousel">
+      <img src="https://i.postimg.cc/Fzk5wN4Q/86d54359-3beb-42a1-8c79-f80feaaf3213.jpg">
+      <img src="https://i.postimg.cc/Y9GtB16V/65f2871d-25d0-4d26-bb2a-c2900c0b3742.jpg">
+      <img src="https://i.postimg.cc/sDyCTFNb/0601e59b-1894-448b-9426-3a2d052c591b.jpg">
+      <img src="https://i.postimg.cc/wB1C191R/3c09a682-c9b4-43f4-ba43-eeff0f138630.jpg">
+    </div>
+    <details>
+      <summary>Details</summary>
+      Dimension: 42*30 inches<br>
+      Technique: Acrylic on Canvas
+    </details>
+    <p class="price">Price: Rs. 15,000</p>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <a href="https://instagram.com/ishadnannn" target="_blank">𝘅𝘄𝘇𝘀𝘅𝘀𝘍𝘇𝘇𝘇</a>
+    <a href="https://wa.me/923009224538" target="_blank">03009224538</a>
   </div>
-
-  <!-- Zoom Modal -->
-  <div id="zoomModal">
-    <span id="closeZoom">&times;</span>
-    <img id="zoomImg" src="" alt="Zoomed Image">
-  </div>
-
-  <script>
-    // Expand/collapse section
-    document.querySelectorAll('.ArtSection').forEach(section => {
-      section.addEventListener('click', () => {
-        section.classList.toggle('open');
-      });
-    });
-
-    // Zoom popup
-    const zoomModal = document.getElementById('zoomModal');
-    const zoomImg = document.getElementById('zoomImg');
-    const closeZoom = document.getElementById('closeZoom');
-
-    document.querySelectorAll('.ArtSection img').forEach(img => {
-      img.addEventListener('click', function(e) {
-        e.stopPropagation(); // prevent collapsing
-        zoomImg.src = this.src;
-        zoomModal.style.display = 'flex';
-      });
-    });
-
-    closeZoom.addEventListener('click', () => {
-      zoomModal.style.display = 'none';
-    });
-    zoomModal.addEventListener('click', (e) => {
-      if (e.target === zoomModal) zoomModal.style.display = 'none';
-    });
-  </script>
 </body>
 </html>
-<!-- Social Links -->
-<footer style="margin-top: 40px; padding: 20px; background: #222; color: white;">
-  <div style="display: flex; justify-content: center; gap: 30px; align-items: center; flex-wrap: wrap;">
-    <a href="https://instagram.com/ishadnannn" target="_blank" style="color: white; text-decoration: none; font-size: 18px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="24" style="vertical-align: middle; margin-right: 8px;">
-      @ishadnannn
-    </a>
-    
-    <a href="https://wa.me/923009224538" target="_blank" style="color: white; text-decoration: none; font-size: 18px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="24" style="vertical-align: middle; margin-right: 8px;">
-      0300-9224538
-    </a>
-  </div>
-</footer>
-<section style="padding: 40px; max-width: 900px; margin: auto;">
-  <h2 style="text-align: center; font-size: 28px; margin-bottom: 20px;">Kiswa e Kaaba</h2>
-  
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
-    <a href="https://i.postimg.cc/d0MvbZhW/IMG-20240714-002308-946.jpg" target="_blank">
-      <img src="https://i.postimg.cc/d0MvbZhW/IMG-20240714-002308-946.jpg" alt="Kiswa e Kaaba 1" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
-    </a>
-
-    <a href="https://i.postimg.cc/JnM8nwcZ/IMG-20240714-002309-088.jpg" target="_blank">
-      <img src="https://i.postimg.cc/JnM8nwcZ/IMG-20240714-002309-088.jpg" alt="Kiswa e Kaaba 2" style="width: 100%; max-width: 400px; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
-    </a>
-  </div>
-
-  <p style="text-align: center; font-weight: bold; font-size: 18px; margin-top: 15px;">
-    Price: Rs. 35,000
-  </p>
-</section>
