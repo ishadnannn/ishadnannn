@@ -23,6 +23,29 @@
       font-weight: normal;
       display: block;
     }
+    /* === Carousel Styles === */
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+  }
+      
+  .carousel img {
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .carousel img:hover {
+    transform: scale(1.05);
+  }
+</style>
+    }
   </style>
 </head>
 <body>
