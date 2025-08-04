@@ -47,7 +47,27 @@
     }
   </style>
 </head>
+  
+<script>
+  const searchInput = document.getElementById("searchInput");
 
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const sections = document.querySelectorAll(".painting-section");
+
+    sections.forEach((section) => {
+      const title = section.dataset.title.toLowerCase();
+      const keywords = section.dataset.keywords.toLowerCase();
+
+      if (title.includes(query) || keywords.includes(query)) {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    });
+  });
+</script>
+  
 <body class="bg-black text-white font-sans m-0 p-0">
 
 <!-- Header -->
@@ -144,7 +164,11 @@
   </section>
 
 <!-- Section 3 -->
-<section>
+<section
+  data-title="the queen's sacrifice"
+  data-keywords="blue, chess, game, black, acrylic, 24"
+  class="painting-section"
+>
   <h2 class="text-[18px] font-bold mb-2">The Queen's Sacrifice</h2>
   <div class="carousel">
     <img src="https://raw.githubusercontent.com/ishadnannn/isha-art-gallery/refs/heads/main/Queen%20Sacrifice/IMG20250613141525.jpg">
