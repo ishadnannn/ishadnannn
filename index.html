@@ -98,61 +98,6 @@
        placeholder="Search paintings" 
        class="hidden border border-gray-400 rounded px-4 py-2 w-full max-w-sm mx-auto block text-black placeholder-gray-500 bg-white shadow-sm" />
 
- <!-- SLIDER -->
-<section class="hero-slider">
-  <div class="slides-track">
-     <div class="slide"><img src="https://github.com/ishadnannn/isha-art-gallery/blob/main/Surah%20Rahman/IMG_20240710_015547_844.jpg" alt="Slide 1"></div>
-    <div class="slide"><img src="https://raw.githubusercontent.com/ishadnannn/isha-art-gallery/refs/heads/main/Kiswa%20e%20kaaba/20241003_233107%7E2.jpg" alt="Slide 2"></div>
-    <div class="slide"><img src="https://raw.githubusercontent.com/ishadnannn/isha-art-gallery/refs/heads/main/Imran%20khan/20241011_131815%7E2.jpg" alt="Slide 3"></div>
-  </div>
-  <div class="slider-dots"></div>
-</section>
-
-<style>
-.hero-slider { position: relative; max-width: 1200px; margin: 30px auto; overflow: hidden; border-radius: 8px; }
-.slides-track { display: flex; transition: transform 0.6s ease; }
-.slide { min-width: 100%; flex-shrink: 0; }
-.slide img { width: 100%; height: 60vh; object-fit: cover; display: block; }
-.slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
-.slider-dots button { width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255,255,255,0.5); cursor: pointer; }
-.slider-dots button.active { background: #fff; }
-@media (max-width:640px) { .slide img { height: 45vh; } }
-</style>
-
-<script>
-(function(){
-  const track = document.querySelector('.slides-track');
-  const slides = Array.from(track.children);
-  const dotsContainer = document.querySelector('.slider-dots');
-  let current = 0, timer;
-
-  // Create dots
-  slides.forEach((_, i) => {
-    const btn = document.createElement('button');
-    if (i === 0) btn.classList.add('active');
-    btn.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(btn);
-  });
-  const dots = Array.from(dotsContainer.children);
-
-  function update() {
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-
-  function goTo(idx) { current = (idx + slides.length) % slides.length; update(); reset(); }
-  function next() { goTo(current + 1); }
-
-  function start() { timer = setInterval(next, 3000); }
-  function reset() { clearInterval(timer); start(); }
-
-  document.querySelector('.hero-slider').addEventListener('mouseenter', () => clearInterval(timer));
-  document.querySelector('.hero-slider').addEventListener('mouseleave', start);
-
-  update(); start();
-})();
-</script>
-  
   <!-- Main content -->
   <main class="bg-gray-200 text-black">
   <!-- Section 1 -->
